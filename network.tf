@@ -89,6 +89,7 @@ resource "google_compute_address" "vault" {
 
   name   = "vault-lb"
   region = "${var.region}"
+  network_tier          = "PREMIUM"
 
   depends_on = ["google_project_service.service"]
 }
