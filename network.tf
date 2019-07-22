@@ -24,6 +24,7 @@ resource "google_compute_address" "vault-nat" {
   project = "${var.project_id}"
   name    = "vault-nat-external-${count.index}"
   region  = "${var.region}"
+  network_tier = "PREMIUM"
 
   depends_on = ["google_project_service.service"]
 }
