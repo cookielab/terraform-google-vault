@@ -25,13 +25,6 @@ locals {
   manage_tls = "${var.manage_tls == "true" ? 1 : 0}"
 }
 
-# Configure the Google provider, locking to the 2.0 series.
-provider "google" {
-  version = "~> 2.0"
-  project = "${var.project_id}"
-  region  = "${var.region}"
-}
-
 # Enable required services on the project
 resource "google_project_service" "service" {
   count   = "${length(var.project_services)}"
