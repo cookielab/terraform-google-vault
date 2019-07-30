@@ -41,7 +41,7 @@ EOF
 }
 
 output vault_addr {
-  value = "https://${google_compute_address.vault.address}:${var.vault_port}"
+  value = "https://${google_compute_address.vault.address}:${var.vault_port_lb}"
 
   description = <<EOF
 Full protocol, address, and port (FQDN) pointing to the Vault load balancer.
@@ -63,7 +63,7 @@ EOF
 }
 
 output vault_lb_port {
-  value = "${var.vault_port}"
+  value = "${var.vault_port_lb}"
 
   description = <<EOF
 Port where Vault is exposed on the load balancer.

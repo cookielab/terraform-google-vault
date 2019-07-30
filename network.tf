@@ -127,7 +127,7 @@ resource "google_compute_firewall" "allow-external" {
 
   allow {
     protocol = "tcp"
-    ports    = ["${var.vault_port}"]
+    ports    = ["${var.vault_port}", "${var.vault_port_lb}"]
   }
 
   source_ranges = var.vault_allowed_cidrs
@@ -145,7 +145,7 @@ resource "google_compute_firewall" "allow-internal" {
 
   allow {
     protocol = "tcp"
-    ports    = ["${var.vault_port}-${var.vault_port + 1}"]
+    ports    = ["${var.vault_port}-${var.vault_port + 1}", "${var.vault_port_lb}-${var.vault_port_lb + 1}"]
   }
 
   source_ranges = [google_compute_subnetwork.vault-subnet.ip_cidr_range]

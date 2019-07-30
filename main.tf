@@ -124,6 +124,7 @@ data "template_file" "vault-startup-script" {
     vault_args       = "${var.vault_args}"
     vault_port       = "${var.vault_port}"
     vault_proxy_port = "${var.vault_proxy_port}"
+    vault_port_lb    = "${var.vault_port_lb}"
     vault_version    = "${var.vault_version}"
 
     vault_tls_bucket        = "${local.vault_tls_bucket}"
@@ -153,6 +154,7 @@ data "template_file" "vault-config" {
 
     vault_log_level                = "${var.vault_log_level}"
     vault_port                     = "${var.vault_port}"
+    vault_port_lb                  = "${var.vault_port_lb}"
     vault_tls_disable_client_certs = "${var.vault_tls_disable_client_certs}"
     vault_ui_enabled               = "${var.vault_ui_enabled}"
   }

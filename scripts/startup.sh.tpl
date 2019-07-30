@@ -146,7 +146,7 @@ systemctl daemon-reload
 
 # Setup vault env
 cat <<"EOF" > /etc/profile.d/vault.sh
-export VAULT_ADDR="http://127.0.0.1:${vault_port}"
+export VAULT_ADDR="http://127.0.0.1:${vault_port_lb}"
 
 # Ignore history from any Vault commands
 export HISTIGNORE="&:vault*"

@@ -457,6 +457,13 @@ addresses.
 EOF
 }
 
+variable vault_port_lb {
+  type    = "string"
+  default = "443"
+
+  description = "TODO"
+}
+
 variable vault_tls_disable_client_certs {
   type    = "string"
   default = false

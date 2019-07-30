@@ -101,7 +101,7 @@ resource "google_compute_forwarding_rule" "vault" {
   network_tier          = "PREMIUM"
 
   target     = "${google_compute_target_pool.vault.self_link}"
-  port_range = "${var.vault_port}"
+  port_range = "${var.vault_port_lb}"
 
   depends_on = ["google_project_service.service"]
 }

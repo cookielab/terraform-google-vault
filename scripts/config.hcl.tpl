@@ -1,6 +1,6 @@
 # Run Vault in HA mode. Even if there's only one Vault node, it doesn't hurt to
 # have this set.
-api_addr = "https://${lb_ip}:${vault_port}"
+api_addr = "https://${lb_ip}:${vault_port_lb}"
 cluster_addr = "https://LOCAL_IP:8201"
 
 # Set debugging level
@@ -31,7 +31,7 @@ listener "tcp" {
 
 # Create an mTLS listener on the load balancer
 listener "tcp" {
-  address            = "${lb_ip}:${vault_port}"
+  address            = "${lb_ip}:${vault_port_lb}"
   tls_cert_file      = "/etc/vault.d/tls/vault.crt"
   tls_key_file       = "/etc/vault.d/tls/vault.key"
   tls_client_ca_file = "/etc/vault.d/tls/ca.crt"
